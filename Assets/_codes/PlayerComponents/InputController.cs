@@ -12,6 +12,7 @@ public class InputController : MonoBehaviour
 	private Vector3 initPointerPos;
 	private Vector3 finalPointerPos;
 	public static bool isInputAllow = true;
+	public float tolerance = 10f;
 	GameObject player;
 	void Start()
 	{
@@ -45,18 +46,17 @@ public class InputController : MonoBehaviour
   {	
 		finalPointerPos	= Input.mousePosition;
 
-		float max = 50f;
 		float difX = Mathf.Abs(initPointerPos.x - finalPointerPos.x);
 		float difY = Mathf.Abs(initPointerPos.y - finalPointerPos.y);
 
-		if(difX > max)
+		if(difX > tolerance)
 		{
 			if(initPointerPos.x < finalPointerPos.x)
 				return Direction.Cube.Right;
 			else if(initPointerPos.x > finalPointerPos.x)
 				return Direction.Cube.Left;
 		}
-		else if(difY > max)
+		else if(difY > tolerance)
 		{
 			if(initPointerPos.y < finalPointerPos.y)
 				return Direction.Cube.Back;

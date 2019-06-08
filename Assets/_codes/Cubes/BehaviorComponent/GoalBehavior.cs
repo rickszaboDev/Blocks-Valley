@@ -10,6 +10,8 @@ public class GoalBehavior : CubeController
 		manager.SwitchMatrixValue(pos, -1);
 	}
 
+	public override void Command(Direction.Cube direction, int[][] _cubesOccup){}
+
 	public override void Update(){
 
 	}

@@ -8,8 +8,8 @@ public class CustomAnimation {
 		Keyframe[] keys;
 		keys = new Keyframe[3];
 		keys[0] = new Keyframe(0.0f, pos1);
-		keys[1] = new Keyframe(1.0f, pos2);
-		keys[2] = new Keyframe(2.0f, pos3);
+		keys[1] = new Keyframe(0.3f, pos2);
+		keys[2] = new Keyframe(0.6f, pos3);
 		var curve = new AnimationCurve(keys);
 		AnimationClip _clip = clip;
 		_clip.SetCurve("", typeof(Transform), coords, curve);

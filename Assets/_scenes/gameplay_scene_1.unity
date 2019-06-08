@@ -160,6 +160,7 @@ MonoBehaviour:
   - {fileID: 1313657229794480, guid: f99a0759fe528394ab7ffd677aeafb37, type: 2}
   - {fileID: 1313657229794480, guid: 94df4494d69876d478d2a46166d68c8b, type: 2}
   - {fileID: 1313657229794480, guid: 6426a32cadd068940a352bc734b91c55, type: 2}
+  - {fileID: 1313657229794480, guid: bb6e3e44acec88d43b98fbfa72af1172, type: 2}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 534669904}
   manager: {fileID: 73747843}
+  tolerance: 10
 --- !u!1 &2012700318
 GameObject:
   m_ObjectHideFlags: 0

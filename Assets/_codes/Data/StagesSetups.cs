@@ -6,7 +6,7 @@
 	public int[][][] cubesOccupation = { 
 		new int[][] {
 			new int[] { // Level 0
-				0, 0, 0, 0,
+				4, 0, 0, 0,
 				0, 0, 1, 1,
 				0, 2, 1, 1,
 				0, 0, 0, 0
