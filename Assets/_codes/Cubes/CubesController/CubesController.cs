@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class CubesController : MonoBehaviour 
 {
+	GameManager gameManager;
 	public LevelSetupContainer setup;
 	public LevelSetupContainer.SwitchMatrixValue switchMatrixValue;
 	public List<CubeController> cubeControllerList = new List<CubeController>();
 	private bool isInputAllow = true;
 
-	public int levelId = 0;
-	public GameObject[] gameElements;
+	[HideInInspector] public int levelId = 0;
+	[HideInInspector] public GameObject[] gameElements;
 	
+	public StageManager stageManager;
 	public void Start()
 	{
+		gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
 		setup = new LevelSetupContainer(levelId);
 		switchMatrixValue = setup.switchMatrixValue;
 		cubeControllerList = SetCubesOnContainer(gameElements, setup.GetCubesOccupation());
@@ -59,5 +62,13 @@ public class CubesController : MonoBehaviour
 	public void SwitchMatrixValue(int[] pos, int value)
 	{
 		this.switchMatrixValue(pos, value);
+	}
+
+	public void EndStage(bool success)
+	{
+		if(success)
+		{
+			stageManager.EndStage(success);
+		}
 	}
 }

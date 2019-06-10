@@ -70,7 +70,7 @@ public class InputController : MonoBehaviour
   private void checkRaycast () 
 	{
 		RaycastHit hit; 
-		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition); 
+		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 		if ( Physics.Raycast (ray,out hit,100.0f)){ 
 			if(hit.transform!=null && hit.collider.tag == "Cube") 
 			{

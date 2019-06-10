@@ -29,6 +29,7 @@ public class AvatarBehavior : CubeController {
 		if(isCompleted)
 		{
 			Debug.Log("End Game");
+			manager.EndStage(true);
 		}
 		base.OnAnimationEnded();
 	}
