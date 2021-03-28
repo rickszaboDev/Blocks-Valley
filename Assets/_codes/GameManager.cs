@@ -1,40 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class GameManager : MonoBehaviour 
+﻿public class GameManager
 {
-	void Awake () {
-		GameObject[] objs = GameObject.FindGameObjectsWithTag("Manager");
-
-        if (objs.Length > 1)
+    private static GameManager _instance;
+    private int _currentLevelId;
+    public int CurrentLevelId
+    {
+        get
         {
-            Destroy(this.gameObject);
+            return _currentLevelId;
         }
-
-        DontDestroyOnLoad(this.gameObject);
+        set
+        {
+            _currentLevelId = value;
+        }
     }
-	
-	public void CallStage(int id)
-	{
-		StartCoroutine(WaitUntilIsDone(id));
-	}
 
-	IEnumerator WaitUntilIsDone(int id)
-	{
-		AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
-		yield return new WaitUntil(() =>{
-			return sceneLoading.isDone;
-		});
-		
-		setGameplayScene(id);
-	}
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new GameManager();
+            }
+            return _instance;
+        }
+    }
 
-	public void setGameplayScene(int id)
+	public void SetGameplayScene(int id)
 	{		
-		CubesController controller = GameObject.FindGameObjectWithTag("CubeContainer").GetComponent<CubesController>();
-		controller.levelId = id - 1;
-		controller.enabled = true;
+		CurrentLevelId = id;
 	}
 }

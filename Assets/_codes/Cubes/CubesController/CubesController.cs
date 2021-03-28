@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CubesController : MonoBehaviour 
 {
-	GameManager gameManager;
 	public LevelSetupContainer setup;
 	public LevelSetupContainer.SwitchMatrixValue switchMatrixValue;
 	public List<CubeController> cubeControllerList = new List<CubeController>();
@@ -14,9 +13,13 @@ public class CubesController : MonoBehaviour
 	[HideInInspector] public GameObject[] gameElements;
 	
 	public StageManager stageManager;
-	public void Start()
+    public void Awake()
+    {
+        var gameManager = GameManager.Instance;
+        levelId = gameManager.CurrentLevelId;
+    }
+    public void Start()
 	{
-		gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
 		setup = new LevelSetupContainer(levelId);
 		switchMatrixValue = setup.switchMatrixValue;
 		cubeControllerList = SetCubesOnContainer(gameElements, setup.GetCubesOccupation());
